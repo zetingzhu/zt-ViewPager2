@@ -103,6 +103,12 @@ public class ActivityViewPager extends BaseActivityViewPager {
             }
         });
 
+        findViewById(R.id.btn_vp2_status_v1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityVp2FragmentStatus.start(v.getContext());
+            }
+        });
     }
 
     private void initviewViewpager1() {

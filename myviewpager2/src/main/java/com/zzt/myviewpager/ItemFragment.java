@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.zzt.myviewpager.util.ColorUtil;
 import com.zzt.viewpager2.R;
 
 /**
@@ -67,14 +68,17 @@ public class ItemFragment extends Fragment {
         button = view.findViewById(R.id.button);
         button.setAllCaps(false);
         item_pager_bg = view.findViewById(R.id.item_pager_bg);
-        if (type == 0) {
+        if (type == 9) {
+            item_pager_bg.setBackgroundColor(ColorUtil.getRandomColor());
+            button.setText("随机颜色:" + position);
+        } else if (type == 0) {
             item_pager_bg.setBackgroundColor(ContextCompat.getColor(item_pager_bg.getContext(), android.R.color.holo_green_light));
             button.setText("viewpager fragment:" + position);
         } else {
             button.setText("viewpager2 fragment:" + position);
             item_pager_bg.setBackgroundColor(ContextCompat.getColor(item_pager_bg.getContext(), android.R.color.holo_blue_bright));
         }
-        setLog("Fragment onViewCreated  - index:" + position);
+        setLogW("Fragment onViewCreated  - index:" + position);
     }
 
     @Override
@@ -133,4 +137,7 @@ public class ItemFragment extends Fragment {
         }
     }
 
+    public void setLogW(String str) {
+        Log.w(TAG, "ViewPager2   " + str);
+    }
 }

@@ -36,6 +36,14 @@
             android:name="com.zzt.myviewpager.ActivityViewPagerViewAdd"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <activity
+            android:name="com.zzt.myviewpager.ActivityVp2FragmentStatus"
+            android:exported="true" />
+
+        <activity
+            android:name="com.zzt.recycle.ActivityRecycleView"
+            android:exported="true" />
     </application>
 
 </manifest>

@@ -128,10 +128,14 @@ public class ActivityViewPagerViewAdd extends BaseActivityViewPager implements V
             viewPager2.getAdapter().notifyItemRangeRemoved(item1, 1);
         } else if (id == R.id.btn_test) {
             viewPager2.beginFakeDrag();
-            viewPager2.fakeDragBy(10);
+            if (viewPager2.fakeDragBy(200)) {
+                viewPager2.endFakeDrag();
+            }
         } else if (id == R.id.btn_test2) {
             viewPager2.beginFakeDrag();
-            viewPager2.fakeDragBy(-10);
+            if (viewPager2.fakeDragBy(-200)) {
+                viewPager2.endFakeDrag();
+            }
         }
     }
 }
