@@ -7,27 +7,65 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vp_banner1"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_height="match_parent">
 
-    <com.zzt.banvp.util.CircleIndicator
-        android:id="@+id/ci_banner1"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:layout_gravity="center_horizontal" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".MainActivity">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vp_banner2"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="30dp" />
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_banner1"
+                android:layout_width="match_parent"
+                android:layout_height="100dp" />
 
-    <com.zzt.banvp.util.CircleIndicator
-        android:id="@+id/ci_banner2"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:layout_gravity="center_horizontal" />
+            <com.zzt.banvp.util.CircleIndicator
+                android:id="@+id/ci_banner1"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_gravity="center_horizontal" />
 
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_banner2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="30dp" />
+
+            <com.zzt.banvp.util.CircleIndicator
+                android:id="@+id/ci_banner2"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_gravity="center_horizontal" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_h"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_banner3"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="30dp" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vp_banner4"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="30dp" />
+
+            <com.zzt.banvp.util.CircleIndicator
+                android:id="@+id/ci_banner4"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_gravity="center_horizontal" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

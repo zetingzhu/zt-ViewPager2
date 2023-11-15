@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 
 import com.zzt.banvp.entiy.ImgObj;
 import com.zzt.banvp.util.BannerAdapterBase;
+import com.zzt.utilcode.util.ColorUtils;
 
 import java.util.List;
 
@@ -41,6 +42,7 @@ public class ImgAdapter extends BannerAdapterBase<ImgObj, MyVH> {
         ImgObj realData = getRealData(bindingAdapterPosition);
         holder.iv_banner_img.setImageResource(realData.getImgId());
         holder.tv_body.setText(realData.getBody());
+        holder.fl_bg.setBackgroundColor(ColorUtils.getRandomColor());
     }
 
 }
