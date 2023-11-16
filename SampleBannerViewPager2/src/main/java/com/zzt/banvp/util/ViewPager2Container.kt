@@ -17,9 +17,7 @@ class ViewPager2Container : FrameLayout {
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : super(
-        context,
-        attrs,
-        defStyleAttr
+        context, attrs, defStyleAttr
     )
 
     private var mViewPager2: ViewPager2? = null
@@ -41,9 +39,9 @@ class ViewPager2Container : FrameLayout {
     }
 
     override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
-        val doNotNeedIntercept = (!mViewPager2!!.isUserInputEnabled
-                || (mViewPager2?.adapter != null
-                && mViewPager2?.adapter!!.itemCount <= 1))
+        val doNotNeedIntercept =
+            ((mViewPager2?.isUserInputEnabled == false || (mViewPager2?.adapter != null && (mViewPager2?.adapter?.itemCount
+                ?: 0) <= 1)))
         if (doNotNeedIntercept) {
             return super.onInterceptTouchEvent(ev)
         }
@@ -54,6 +52,7 @@ class ViewPager2Container : FrameLayout {
                 // 禁止父类滚动
                 parent.requestDisallowInterceptTouchEvent(true)
             }
+
             MotionEvent.ACTION_MOVE -> {
                 val endX = ev.x.toInt()
                 val endY = ev.y.toInt()
@@ -65,6 +64,7 @@ class ViewPager2Container : FrameLayout {
                     onHorizontalActionMove(endX, disX, disY)
                 }
             }
+
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                 // 允许所有父类拦截
                 parent.requestDisallowInterceptTouchEvent(false)
@@ -79,13 +79,12 @@ class ViewPager2Container : FrameLayout {
         }
         if (disX > disY) {
             val currentItem = mViewPager2?.currentItem
-            val itemCount = mViewPager2?.adapter!!.itemCount
+            val itemCount = mViewPager2?.adapter?.itemCount ?: 0
             if (currentItem == 0 && endX - startX > 0) {
                 parent.requestDisallowInterceptTouchEvent(false)
             } else {
                 parent.requestDisallowInterceptTouchEvent(
-                    currentItem != itemCount - 1
-                            || endX - startX >= 0
+                    currentItem != itemCount - 1 || endX - startX >= 0
                 )
             }
         } else if (disY > disX) {
@@ -98,14 +97,13 @@ class ViewPager2Container : FrameLayout {
             return
         }
         val currentItem = mViewPager2?.currentItem
-        val itemCount = mViewPager2?.adapter!!.itemCount
+        val itemCount = mViewPager2?.adapter?.itemCount ?: 0
         if (disY > disX) {
             if (currentItem == 0 && endY - startY > 0) {
                 parent.requestDisallowInterceptTouchEvent(false)
             } else {
                 parent.requestDisallowInterceptTouchEvent(
-                    currentItem != itemCount - 1
-                            || endY - startY >= 0
+                    currentItem != itemCount - 1 || endY - startY >= 0
                 )
             }
         } else if (disX > disY) {

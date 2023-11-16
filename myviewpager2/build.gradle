@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.zzt.viewpager2"
-        minSdkVersion 26
+        minSdkVersion 25
         targetSdkVersion 33
         versionCode 1
         versionName "1.0"
@@ -75,5 +75,5 @@ dependencies {
 
 
 
-    implementation 'com.github.zetingzhu:ZZTUtilCode:1.2.0'
+    implementation 'com.github.zetingzhu:ZZTUtilCode:1.2.7'
 }

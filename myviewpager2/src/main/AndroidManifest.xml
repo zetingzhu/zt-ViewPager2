@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name="com.zzt.myviewpager.act.AutoHeightActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.zzt.myviewpager.act.StartActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="com.zzt.myviewpager.ActivityVp2ToRv"
             android:exported="true" />
         <activity
@@ -18,11 +30,7 @@
         <activity
             android:name="com.zzt.myviewpager.ActivityViewPager"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.zzt.myviewpager.ActivityViewPagerFragment"
@@ -36,11 +44,9 @@
             android:name="com.zzt.myviewpager.ActivityViewPagerViewAdd"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
         <activity
             android:name="com.zzt.myviewpager.ActivityVp2FragmentStatus"
             android:exported="true" />
-
         <activity
             android:name="com.zzt.recycle.ActivityRecycleView"
             android:exported="true" />

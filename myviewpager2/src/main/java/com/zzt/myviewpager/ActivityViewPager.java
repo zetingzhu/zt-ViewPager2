@@ -1,5 +1,6 @@
 package com.zzt.myviewpager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -37,6 +38,11 @@ public class ActivityViewPager extends BaseActivityViewPager {
     CircleIndicator ci_view;
 
     RecyclerView recycleview;
+
+    public static void start(Context context) {
+        Intent starter = new Intent(context, ActivityViewPager.class);
+        context.startActivity(starter);
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

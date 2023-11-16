@@ -47,12 +47,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
-
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/vp_banner3"
+            <com.zzt.banvp.util.ViewPager2Container
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="30dp" />
+                android:layout_height="wrap_content">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vp_banner3"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="30dp" />
+            </com.zzt.banvp.util.ViewPager2Container>
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/vp_banner4"

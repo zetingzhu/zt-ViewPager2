@@ -153,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
         MyVP1Adapter vpAdapter3 = new MyVP1Adapter(ints);
         vp_banner3.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
         vp_banner3.setAdapter(vpAdapter3);
+        vp_banner3.setUserInputEnabled(true);
 
         List<String> btnList = new ArrayList<>();
         btnList.add(0, "缩放");
