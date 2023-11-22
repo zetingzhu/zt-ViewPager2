@@ -22,8 +22,6 @@ public class ViewPager2MinHeightManager {
     private RecyclerView.Adapter<?> mAdapter;
     private ViewPager2OnPageChangeCallback mPageChangeCallback;
 
-    private int viewState = -1;
-
     public ViewPager2MinHeightManager(ViewPager2 viewPager2) {
         this.mViewPager2 = viewPager2;
     }
@@ -72,29 +70,19 @@ public class ViewPager2MinHeightManager {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
             super.onPageScrolled(position, positionOffset, positionOffsetPixels);
-            Log.d(TAG, ">>> 高度 onPageScrolled：" + position + " positionOffset:" + positionOffset + " positionOffsetPixels:" + positionOffsetPixels);
-            if (position == 0 && viewState == -1 && positionOffset == 0 && positionOffsetPixels == 0) {
-                mViewPager2.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        findViewByPos(0);
-                    }
-                });
-
-            }
+//            Log.d(TAG, ">>> 高度 onPageScrolled：" + position + " positionOffset:" + positionOffset + " positionOffsetPixels:" + positionOffsetPixels);
         }
 
         @Override
         public void onPageScrollStateChanged(int state) {
             super.onPageScrollStateChanged(state);
-            Log.d(TAG, ">>> 高度 onPageScrollStateChanged：" + state);
-            viewState = state;
+//            Log.d(TAG, ">>> 高度 onPageScrollStateChanged：" + state);
         }
 
 
         @Override
         public void onPageSelected(int position) {
-            Log.d(TAG, ">>> 高度 onPageSelected：" + position);
+//            Log.d(TAG, ">>> 高度 onPageSelected：" + position);
 
             findViewByPos(position);
         }
@@ -103,12 +91,9 @@ public class ViewPager2MinHeightManager {
 
     public void findViewByPos(int position) {
         if (mViewPager2 != null) {
-            Log.d(TAG, ">>> 高度 1：");
             if (mViewPager2.getChildAt(0) instanceof RecyclerView) {
                 RecyclerView.LayoutManager layoutManager = ((RecyclerView) mViewPager2.getChildAt(0)).getLayoutManager();
-                Log.d(TAG, ">>> 高度 2：");
                 if (layoutManager != null) {
-                    Log.d(TAG, ">>> 高度 3：");
                     View findViewByPosition = layoutManager.findViewByPosition(position);
                     updatePagerHeightForChild(findViewByPosition);
                 }
@@ -132,31 +117,37 @@ public class ViewPager2MinHeightManager {
     private final RecyclerView.AdapterDataObserver mAdapterDataObserver = new RecyclerView.AdapterDataObserver() {
         @Override
         public void onChanged() {
+            Log.d(TAG, ">>> AdapterDataObserver onChanged");
             changeView();
         }
 
         @Override
         public void onItemRangeChanged(int positionStart, int itemCount) {
+            Log.d(TAG, ">>> AdapterDataObserver onItemRangeChanged");
             changeView();
         }
 
         @Override
         public void onItemRangeChanged(int positionStart, int itemCount, @Nullable Object payload) {
+            Log.d(TAG, ">>> AdapterDataObserver onItemRangeChanged");
             changeView();
         }
 
         @Override
         public void onItemRangeInserted(int positionStart, int itemCount) {
+            Log.d(TAG, ">>> AdapterDataObserver onItemRangeInserted");
             changeView();
         }
 
         @Override
         public void onItemRangeRemoved(int positionStart, int itemCount) {
+            Log.d(TAG, ">>> AdapterDataObserver onItemRangeRemoved");
             changeView();
         }
 
         @Override
         public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
+            Log.d(TAG, ">>> AdapterDataObserver onItemRangeMoved");
             changeView();
         }
     };

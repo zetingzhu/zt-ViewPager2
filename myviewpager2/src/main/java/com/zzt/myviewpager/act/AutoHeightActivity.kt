@@ -6,14 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.get
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.zzt.myviewpager.adapter.MyVP1Adapter
 import com.zzt.myviewpager.data.ImgObj
 import com.zzt.viewpager2.R
-import kotlin.math.log
 
 /**
  * 高度自适应
@@ -46,7 +43,6 @@ class AutoHeightActivity : AppCompatActivity() {
         vp2_auto = findViewById(R.id.vp2_auto)
         val vpAdapter3 = MyVP1Adapter(listTestData())
         vp2_auto?.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL)
-
         vp2_auto?.setAdapter(vpAdapter3)
 
         var heightManager = ViewPager2MinHeightManager(vp2_auto)
