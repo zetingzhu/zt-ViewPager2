@@ -1,5 +1,6 @@
 package com.zzt.banvp;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import java.util.List;
  * @date: 2022/1/5
  */
 public class ImgAdapter extends BannerAdapterBase<ImgObj, MyVH> {
+    private static final String TAG = ImgAdapter.class.getSimpleName();
 
     public ImgAdapter(List<ImgObj> datas) {
         super(datas);
