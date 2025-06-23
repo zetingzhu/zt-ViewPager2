@@ -20,7 +20,7 @@ import java.util.List;
  * ViewPager2BannerManager vpbm = new ViewPager2BannerManager(vp_banner2, imgAdapter);
  * vpbm.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback());
  * vpbm.attach();
- * ViewpagerIndicatorManager vim2 = new ViewpagerIndicatorManager(vp_banner2, ci_banner2);
+ * ViewPager2IndicatorManager vim2 = new ViewPager2IndicatorManager(vp_banner2, ci_banner2);
  * vim2.setBannerManager(vpbm);
  * vim2.setIndicatorNormalColor(Color.parseColor("#222222"));
  * vim2.setIndicatorSelectedColor(Color.parseColor("#AAAAAA"));

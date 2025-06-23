@@ -21,6 +21,8 @@ public class IndicatorConfig {
     // 指示器宽度
     private int normalWidth = dp2px(8);
     // 指示器高度
+    private int selectedHeight = dp2px(8);
+    // 选中指示器宽度
     private int selectedWidth = dp2px(8);
     // 默认指示器颜色
     @ColorInt
@@ -80,6 +82,15 @@ public class IndicatorConfig {
 
     public IndicatorConfig setNormalWidth(int normalWidth) {
         this.normalWidth = normalWidth;
+        return this;
+    }
+
+    public int getSelectedHeight() {
+        return selectedHeight;
+    }
+
+    public IndicatorConfig setSelectedHeight(int selectedHeight) {
+        this.selectedHeight = selectedHeight;
         return this;
     }
 

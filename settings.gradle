@@ -18,3 +18,4 @@ rootProject.name = "zt-ViewPager2"
 include ':app'
 include ':myviewpager2'
 include ':SampleBannerViewPager2'
+include ':zt_autoheightbanner'

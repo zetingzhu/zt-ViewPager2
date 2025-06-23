@@ -28,6 +28,19 @@
                 android:layout_height="10dp"
                 android:layout_gravity="center_horizontal" />
 
+            <com.zzt.banvp.util.RoundIndicator
+                android:id="@+id/ri_banner1"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp" />
+
+            <com.zzt.banvp.util.RoundSlidingIndicator
+                android:id="@+id/rsi_banner1"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp" />
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/vp_banner2"
@@ -68,7 +81,8 @@
                 android:id="@+id/ci_banner4"
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="24dp" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

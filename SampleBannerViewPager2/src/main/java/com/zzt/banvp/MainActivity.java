@@ -1,5 +1,7 @@
 package com.zzt.banvp;
 
+import static com.zzt.utilcode.util.SizeUtils.dp2px;
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,6 +31,9 @@ import com.zzt.banvp.trans.ZoomInTransformer;
 import com.zzt.banvp.trans.ZoomOutPageTransformer;
 import com.zzt.banvp.trans.ZoomOutTransformer;
 import com.zzt.banvp.util.CircleIndicator;
+import com.zzt.banvp.util.RoundIndicator;
+import com.zzt.banvp.util.RoundRectIndicator;
+import com.zzt.banvp.util.RoundSlidingIndicator;
 import com.zzt.banvp.util.ViewPager2BannerManager;
 import com.zzt.banvp.util.ViewPager2IndicatorManager;
 import com.zzt.utilcode.util.ColorUtils;
@@ -42,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     ViewPager2 vp_banner1, vp_banner2, vp_banner3, vp_banner4;
     CircleIndicator ci_banner1, ci_banner2, ci_banner4;
+    RoundIndicator ri_banner1;
+    RoundSlidingIndicator rsi_banner1;
 
     RecyclerView rv_h;
 
@@ -111,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         vp_banner4.setPageTransformer(new ZoomOutPageTransformer());
 
         /**设置显示viewpager 显示位置大小*/
-        int padding = (int) SizeUtils.dp2px(50);
+        int padding = (int) dp2px(50);
         RecyclerView recyclerView = (RecyclerView) vp_banner4.getChildAt(0);
         recyclerView.setPadding(padding, 0, padding, 0);
         // 设置裁剪，并且有其他子类填充
@@ -240,6 +247,10 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         vp_banner1 = findViewById(R.id.vp_banner1);
         ci_banner1 = findViewById(R.id.ci_banner1);
+        ri_banner1 = findViewById(R.id.ri_banner1);
+        rsi_banner1 = findViewById(R.id.rsi_banner1);
+
+        ri_banner1.getIndicatorConfig().setNormalWidth(dp2px(24));
 
         RecyclerView.Adapter adapter2 = new RecyclerView.Adapter<MyVH>() {
             @NonNull
@@ -254,6 +265,7 @@ public class MainActivity extends AppCompatActivity {
             public void onBindViewHolder(@NonNull MyVH holder, int position) {
                 holder.iv_banner_img.setImageResource(arrayIds[position]);
                 holder.fl_bg.setBackgroundColor(ColorUtils.getRandomColor());
+                holder.tv_body.setText("这是第几个：" + position);
             }
 
             @Override
@@ -267,8 +279,20 @@ public class MainActivity extends AppCompatActivity {
         // 绑定指示器
         ViewPager2IndicatorManager vim1 = new ViewPager2IndicatorManager(vp_banner1, ci_banner1);
         vim1.setIndicatorNormalColor(Color.parseColor("#222222"));
-        vim1.setIndicatorSelectedColor(Color.parseColor("#AAAAAA"));
+        vim1.setIndicatorSelectedColor(Color.parseColor("#FF0000"));
         vim1.attach();
+
+        ViewPager2IndicatorManager vim2 = new ViewPager2IndicatorManager(vp_banner1, ri_banner1);
+        vim2.setIndicatorNormalColor(Color.parseColor("#222222"));
+        vim2.setIndicatorSelectedColor(Color.parseColor("#FF0000"));
+        vim2.setIndicatorNormalWidth(dp2px(24));
+        vim2.attach();
+
+        ViewPager2IndicatorManager vim3 = new ViewPager2IndicatorManager(vp_banner1, rsi_banner1);
+        vim3.setIndicatorNormalColor(Color.parseColor("#222222"));
+        vim3.setIndicatorSelectedColor(Color.parseColor("#FF0000"));
+        vim3.setIndicatorNormalWidth(dp2px(24));
+        vim3.attach();
     }
 
     public List<ImgObj> listTestData() {

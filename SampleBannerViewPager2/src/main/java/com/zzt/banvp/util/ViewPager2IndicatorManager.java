@@ -13,31 +13,30 @@ import androidx.viewpager2.widget.ViewPager2;
  * @author: zeting
  * @date: 2021/12/30
  * Viewpager2 和 indicator 绑定管理器
- *
-
-没有循环，简单使用
-ViewpagerIndicatorManager vim1 = new ViewpagerIndicatorManager(vp_banner1, ci_banner1);
-vim1.setIndicatorNormalColor(Color.parseColor("#222222"));
-vim1.setIndicatorSelectedColor(Color.parseColor("#AAAAAA"));
-vim1.attach();
-
-有循环使用：
-ViewPager2BannerManager vpbm = new ViewPager2BannerManager(vp_banner2, imgAdapter);
-vpbm.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback());
-vpbm.attach();
-ViewpagerIndicatorManager vim2 = new ViewpagerIndicatorManager(vp_banner2, ci_banner2);
-vim2.setBannerManager(vpbm);
-vim2.setIndicatorNormalColor(Color.parseColor("#222222"));
-vim2.setIndicatorSelectedColor(Color.parseColor("#AAAAAA"));
-vim2.attach();
-如果使用了setDatas 设置数据需要初始化起始位置
-imgAdapter.setDatas(ints);
-vpbm.setDataAfter();
-
+ * <p>
+ * <p>
+ * 没有循环，简单使用
+ * ViewPager2IndicatorManager vim1 = new ViewPager2IndicatorManager(vp_banner1, ci_banner1);
+ * vim1.setIndicatorNormalColor(Color.parseColor("#222222"));
+ * vim1.setIndicatorSelectedColor(Color.parseColor("#AAAAAA"));
+ * vim1.attach();
+ * <p>
+ * 有循环使用：
+ * ViewPager2BannerManager vpbm = new ViewPager2BannerManager(vp_banner2, imgAdapter);
+ * vpbm.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback());
+ * vpbm.attach();
+ * ViewPager2IndicatorManager vim2 = new ViewPager2IndicatorManager(vp_banner2, ci_banner2);
+ * vim2.setBannerManager(vpbm);
+ * vim2.setIndicatorNormalColor(Color.parseColor("#222222"));
+ * vim2.setIndicatorSelectedColor(Color.parseColor("#AAAAAA"));
+ * vim2.attach();
+ * 如果使用了setDatas 设置数据需要初始化起始位置
+ * imgAdapter.setDatas(ints);
+ * vpbm.setDataAfter();
  */
 public class ViewPager2IndicatorManager {
     ViewPager2 mViewPager2;
-    CircleIndicator mIndicator;
+    BaseIndicator mIndicator;
     @Nullable
     private RecyclerView.Adapter<?> mAdapter;
 
@@ -46,7 +45,7 @@ public class ViewPager2IndicatorManager {
     /*** 和ViewPager2 绑定的无限滚动管理类 */
     private ViewPager2BannerManager bannerManager;
 
-    public ViewPager2IndicatorManager(ViewPager2 viewPager2, CircleIndicator indicator) {
+    public ViewPager2IndicatorManager(ViewPager2 viewPager2, BaseIndicator indicator) {
         this.mViewPager2 = viewPager2;
         this.mIndicator = indicator;
     }
@@ -164,6 +163,12 @@ public class ViewPager2IndicatorManager {
     public void setIndicatorNormalWidth(int normalWidth) {
         if (getIndicatorConfig() != null) {
             getIndicatorConfig().setNormalWidth(normalWidth);
+        }
+    }
+
+    public void setIndicatorNormalHeight(int normalHeight) {
+        if (getIndicatorConfig() != null) {
+            getIndicatorConfig().setSelectedHeight(normalHeight);
         }
     }
 
